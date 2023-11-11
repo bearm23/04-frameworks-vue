@@ -43,8 +43,10 @@ export default defineComponent({
     const searchInput = ref(searchTerm.value);
 
     const handleSearchInput = () => {
-      memberStore.setSearchTerm(searchInput.value);
-      memberStore.fetchMembers(searchInput.value);
+      if (searchInput.value !== "") {
+        memberStore.setSearchTerm(searchInput.value);
+        memberStore.fetchMembers(searchInput.value);
+      }
     };
 
     return { list, searchInput, handleSearchInput };

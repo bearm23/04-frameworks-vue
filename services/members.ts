@@ -5,11 +5,6 @@ export const githubService = {
     try {
       return await fetch(
         `https://api.github.com/orgs/${organization}/members`,
-        {
-          headers: {
-            Authorization: "Bearer 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"
-          }
-        }
       ).then(response => {
         if (response.status !== 200) {
           throw new Error("Error fetching members");
